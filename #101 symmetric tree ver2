@@ -27,5 +27,4 @@ class Solution(object):
             stackl.append(left.right)
             stackr.append(right.right)
             stackr.append(right.left)
-        return len(stackl) == 0 and len(stackr) == 0
-        
+        return len(stackl) == 0 and len(stackr) == 0        
