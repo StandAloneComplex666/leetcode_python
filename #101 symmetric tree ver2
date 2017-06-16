@@ -28,3 +28,4 @@ class Solution(object):
             stackr.append(right.right)
             stackr.append(right.left)
         return len(stackl) == 0 and len(stackr) == 0
+        
