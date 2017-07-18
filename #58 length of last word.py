@@ -1,3 +1,4 @@
+#29ms / 99.79%
 class Solution(object):
     def lengthOfLastWord(self, s):
         """
