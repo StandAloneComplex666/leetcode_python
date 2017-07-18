@@ -1,3 +1,4 @@
+#922 ms / 38.76%
 import collections
 class Solution:
     # @param start, a string
