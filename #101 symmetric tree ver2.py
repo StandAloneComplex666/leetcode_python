@@ -1,3 +1,4 @@
+#62ms / 20.67% /DFS
 # Definition for a binary tree node.
 # class TreeNode(object):
 #     def __init__(self, x):
