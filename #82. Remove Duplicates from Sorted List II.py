@@ -1,4 +1,4 @@
-#82. Remove Duplicates from Sorted List II.py
+#82. Remove Duplicates from Sorted List II
 
 # Definition for singly-linked list.
 # class ListNode:
