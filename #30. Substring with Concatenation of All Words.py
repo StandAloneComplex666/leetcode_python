@@ -27,3 +27,51 @@ class Solution:
                 j+=1
             if j==wordNum: res.append(i)
         return res
+
+#fastest version:
+class Solution(object):
+    def findSubstring(self, s, words):
+        """
+        :type s: str
+        :type words: List[str]
+        :rtype: List[int]
+        """
+        from collections import deque
+        result = []
+        if len(words) == 0:
+            return result
+        wordLen = len(words[0])
+        wordDict = dict()
+        for word in words:
+            wordDict[word] = wordDict.get(word, 0) + 1    
+    
+        for i in range(wordLen):        
+            start = i
+            current = start
+            wordUsed = deque(maxlen=len(words))
+            while current <= len(s)-(len(words)-len(wordUsed))*wordLen:
+                currentWord = s[current:current+wordLen]
+                if currentWord not in wordDict:
+                    while wordUsed:
+                        wordDict[wordUsed.popleft()] += 1
+                    start = current + wordLen
+                    current = start
+                elif wordDict[currentWord] == 0:
+                    while wordUsed[0] != currentWord:
+                        wordDict[wordUsed.popleft()] += 1
+                        start += wordLen
+                    wordUsed.popleft()
+                    wordUsed.append(currentWord)
+                    start += wordLen
+                    current += wordLen
+                else:                
+                    wordUsed.append(currentWord)
+                    wordDict[currentWord] -= 1
+                    current += wordLen
+                    if len(wordUsed) == len(words):
+                        result.append(start)
+                        wordDict[wordUsed.popleft()] += 1
+                        start += wordLen
+            while wordUsed:
+                wordDict[wordUsed.popleft()] += 1
+        return sorted(result)

@@ -1,4 +1,4 @@
-#206. Reverse Linked List.py
+#206. Reverse Linked List
 # Definition for singly-linked list.
 # class ListNode(object):
 #     def __init__(self, x):
