@@ -37,7 +37,8 @@ class Solution(object):
                     space_dict[len_row] = 1
                 else:
                     space_dict[len_row] += 1
-        if space_dict:
-            return len(wall) - max(space_dict.values())
-        else:
-            return len(wall)
+        # if space_dict:
+        #     return len(wall) - max(space_dict.values())
+        # else:
+        #     return len(wall)
+        return len(wall) if (len(space_dict) == 0) else (len(wall) - max(space_dict.values()))
