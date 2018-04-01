@@ -35,3 +35,15 @@ class Solution(object):
                     dfs(node.left) or dfs(node.right))
 
         return dfs(s)
+
+class Solution(object):
+    def isSubtree(self, s, t):
+        """
+        :type s: TreeNode
+        :type t: TreeNode
+        :rtype: bool
+        """
+        def convert(p):
+            return "^" + str(p.val) + "#" + convert(p.left) + convert(p.right) if p else "$"
+        
+        return convert(t) in convert(s)
