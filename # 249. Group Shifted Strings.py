@@ -1,3 +1,9 @@
+'''
+    First get the key of a string by transfering it
+     to the relative position of its first character.
+    Then the strings who belongs to the same group will have the same key.
+    Use hashmap to store them and then output.
+'''
 class Solution:
     def groupStrings(self, strings):
         """
