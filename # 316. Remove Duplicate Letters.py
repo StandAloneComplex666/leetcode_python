@@ -44,26 +44,6 @@ class Solution(object):
  
         return ''.join(ans)
 
-Python
-
-class Solution(object):
-    def removeDuplicateLetters(self, s):
-        """
-        :type s: str
-        :rtype: str
-        """
-        ans = ''
-        while s:
-            cnt = collections.Counter(s)
-            min_c, index = s[0], 0
-            for i, c in enumerate(s):
-                if min_c > c:
-                    min_c, index = c, i
-                cnt[c] -= 1
-                if not cnt[c]: break
-            ans += min_c
-            s = s[index + 1:].replace(min_c,'')
-        return ans
 
 class Solution(object):
     def removeDuplicateLetters(self, s):
