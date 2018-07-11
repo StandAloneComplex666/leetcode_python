@@ -1,21 +1,24 @@
-# Definition for an interval.
-# class Interval(object):
-#     def __init__(self, s=0, e=0):
-#         self.start = s
-#         self.end = e
-
-class Solution(object):
-    def canAttendMeetings(self, intervals):
-        """
-        :type intervals: List[Interval]
-        :rtype: bool
-        """
-        if len(intervals) == 0 or len(intervals) == 1:
-            return True
-        
-        intervals.sort(key=lambda x:x.start)
-        
-        for i in range(1,len(intervals)):
-            if intervals[i].start<intervals[i-1].end:
-                return False
-        return True
+/**
+ * Definition for an interval.
+ * public class Interval {
+ *     int start;
+ *     int end;
+ *     Interval() { start = 0; end = 0; }
+ *     Interval(int s, int e) { start = s; end = e; }
+ * }
+ */
+class Solution {
+    public boolean canAttendMeetings(Interval[] intervals) {
+        int len = intervals.length;
+        if (len==0){
+            return true;
+        }
+        Arrays.sort(intervals, new Comparator<Interval>(){
+            public int compare(Interval a,Interval b){return a.start-b.start;}
+        });
+        for (int i = 1; i < intervals.length; i++)
+            if (intervals[i].start < intervals[i-1].end)
+                    return false;
+        return true;
+    }
+}
