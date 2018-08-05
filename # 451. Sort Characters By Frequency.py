@@ -1,10 +1,19 @@
-# 451. Sort Characters By Frequency
-
-# The best solution I saw using python
 class Solution:
     def frequencySort(self, s):
         """
         :type s: str
         :rtype: str
         """
-        return ''.join(c * i for c, i in collections.Counter(s).most_common())
+        charMap = {}
+        for i in s:
+            if i in charMap:
+                charMap[i] += 1
+            else:
+                charMap[i] = 1
+        
+        stringSorted = (sorted(charMap.items(), key=lambda t:t[1]))
+        res = ""
+        for (i,j) in stringSorted:
+            temp = i * j
+            res += temp
+        return res[::-1]
