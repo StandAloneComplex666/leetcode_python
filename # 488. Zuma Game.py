@@ -31,3 +31,5 @@ class Solution(object):
             
         helper(board, len(hand), dic)
         return self.ans if self.ans != 2147483647 else -1
+
+        
