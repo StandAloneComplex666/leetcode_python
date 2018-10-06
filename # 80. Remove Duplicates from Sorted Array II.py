@@ -24,7 +24,8 @@ class Solution:
                 #print(nums)
                 break
         return listEnd
-
+for i in range(removeDuplicates(nums)):
+	print(nums[i])
 # Second Version:
 class Solution:
     def removeDuplicates(self, nums):
